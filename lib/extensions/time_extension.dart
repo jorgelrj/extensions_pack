@@ -13,3 +13,7 @@ extension DateExtension on DateTime {
     return weekday == DateTime.sunday || weekday == DateTime.saturday;
   }
 }
+
+extension DurationExtension on Duration {
+  Future<void> get delay => Future.delayed(this);
+}

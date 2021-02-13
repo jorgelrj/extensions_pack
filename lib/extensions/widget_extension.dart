@@ -15,4 +15,30 @@ extension WidgetExtension on Widget {
       child: this,
     );
   }
+
+  Widget constrained({
+    double maxHeight,
+    double maxWidth,
+    double minHeight,
+    double minWidth,
+  }) {
+    return ConstrainedBox(
+      constraints: BoxConstraints(
+        maxHeight: maxHeight,
+        maxWidth: maxWidth,
+        minHeight: minHeight,
+        minWidth: minWidth,
+      ),
+      child: this,
+    );
+  }
+
+  Widget centered() => Center(child: this);
+
+  Widget aligned([Alignment alignment = Alignment.center]) {
+    return Align(
+      alignment: alignment,
+      child: this,
+    );
+  }
 }
