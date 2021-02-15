@@ -42,3 +42,16 @@ extension WidgetExtension on Widget {
     );
   }
 }
+
+extension ListWidgetExtension on List<Widget> {
+  /// Returns first widget for wide screens and last for mobile
+  Widget responsiveLayout() {
+    assert(this.length == 2);
+
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return constraints.maxWidth > 800 ? this.first : this.last;
+      },
+    );
+  }
+}
