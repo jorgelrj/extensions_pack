@@ -14,6 +14,13 @@ extension DateExtension on DateTime {
   bool get isWeekend {
     return weekday == DateTime.sunday || weekday == DateTime.saturday;
   }
+
+  bool isBetween(DateTime start, DateTime finish) {
+    return isAfter(start) && isBefore(finish);
+  }
+
+  DateTime addDays(int days) => add(Duration(days: days));
+  DateTime subtractDays(int days) => subtract(Duration(days: days));
 }
 
 extension TimeOfDayExtension on TimeOfDay {
