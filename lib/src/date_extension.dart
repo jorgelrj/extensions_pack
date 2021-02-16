@@ -19,6 +19,9 @@ extension DateExtension on DateTime {
     return isAfter(start) && isBefore(finish);
   }
 
+  bool isSameOrAfter(DateTime date) => isAtSameMomentAs(date) || isAfter(date);
+  bool isSameOrBefor(DateTime date) => isAtSameMomentAs(date) || isBefore(date);
+
   DateTime addDays(int days) => add(Duration(days: days));
   DateTime subtractDays(int days) => subtract(Duration(days: days));
 }
