@@ -4,3 +4,8 @@
 ## [0.0.5] - 16/02/2021.
 
 * TimeOfDay to DateTime extension.
+## [0.0.6] - 16/02/2021.
+
+* DateTime extension do add and subtract days.
+* Extension to check if date is between other dates.
+* Fix files export
