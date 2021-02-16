@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 extension DateExtension on DateTime {
   DateTime get endOfDay {
     return startOfDay
@@ -12,6 +14,10 @@ extension DateExtension on DateTime {
   bool get isWeekend {
     return weekday == DateTime.sunday || weekday == DateTime.saturday;
   }
+}
+
+extension TimeOfDayExtension on TimeOfDay {
+  DateTime toDate() => DateTime(1, 1, 1, hour, minute);
 }
 
 extension DurationExtension on Duration {
