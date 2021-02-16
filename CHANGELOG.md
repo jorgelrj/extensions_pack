@@ -9,3 +9,6 @@
 * DateTime extension do add and subtract days.
 * Extension to check if date is between other dates.
 * Fix files export
+## [0.0.7] - 16/02/2021.
+
+* DateTime extension do check if date is same or after or before other date
