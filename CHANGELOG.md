@@ -1,3 +1,3 @@
-## [0.0.1] - TODO: Add release date.
+## [0.0.4] - 16/02/2021.
 
-* TODO: Describe initial release.
+* String extensions to return DateTime and TimeOfDay.
