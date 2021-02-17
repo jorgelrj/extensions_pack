@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 
 extension StringExtension on String {
-  bool get isBlank => this == null || isEmpty;
-  bool get isNotBlank => !isBlank;
-
   String capitalize() => '${this[0].toUpperCase()}${substring(1)}';
 
   String toSnakeCase() {
@@ -21,10 +18,15 @@ extension StringExtension on String {
 
   String removeExtraWhiteSpace() => replaceAll(RegExp(r'\\s+'), ' ');
 
-  TimeOfDay toTimeOfDay() {
-    final dateTime = DateTime.tryParse(this);
+  TimeOfDay? toTimeOfDay() {
+    final dateTime = toDateTime();
     return dateTime == null ? null : TimeOfDay.fromDateTime(dateTime);
   }
 
-  DateTime toDateTime() => DateTime.tryParse(this);
+  DateTime? toDateTime() => DateTime.tryParse(this);
+}
+
+extension NullStringExtension on String? {
+  bool get isBlank => this == null || this!.isEmpty;
+  bool get isNotBlank => !isBlank;
 }

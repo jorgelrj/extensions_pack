@@ -8,7 +8,7 @@ extension WidgetExtension on Widget {
     );
   }
 
-  Widget sized({double height, double width}) {
+  Widget sized({double? height, double? width}) {
     return SizedBox(
       height: height,
       width: width,
@@ -17,10 +17,10 @@ extension WidgetExtension on Widget {
   }
 
   Widget constrained({
-    double maxHeight,
-    double maxWidth,
-    double minHeight,
-    double minWidth,
+    double maxHeight = double.infinity,
+    double maxWidth = double.infinity,
+    double minHeight = 0.0,
+    double minWidth = 0.0,
   }) {
     return ConstrainedBox(
       constraints: BoxConstraints(
