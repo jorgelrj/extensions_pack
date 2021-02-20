@@ -24,6 +24,12 @@ extension DateExtension on DateTime {
 
   DateTime addDays(int days) => add(Duration(days: days));
   DateTime subtractDays(int days) => subtract(Duration(days: days));
+  DateTime addMonths(int months) => add(Duration(days: months * 30));
+  DateTime subtractMonths(int months) => subtract(Duration(days: months * 30));
+  DateTime addYears(int years) => add(Duration(days: years * 365));
+  DateTime subtractYears(int years) => subtract(Duration(days: years * 365));
+
+  int differenceInDays(DateTime date) => difference(date).inDays;
 }
 
 extension TimeOfDayExtension on TimeOfDay {

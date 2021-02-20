@@ -15,3 +15,7 @@
 ## [0.0.8] - 17/02/2021.
 
 * Migrate package to null safety.
+## [0.0.9] - 20/02/2021.
+
+* New date extensions to add months and years to date
+* New extensions to get duration from int
