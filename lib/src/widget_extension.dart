@@ -1,7 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 extension WidgetExtension on Widget {
-  Widget padded([EdgeInsets padding = const EdgeInsets.all(16)]) {
+  Widget padded([EdgeInsets padding = const EdgeInsets.all(16.0)]) {
     return Padding(
       padding: padding,
       child: this,
@@ -28,6 +29,32 @@ extension WidgetExtension on Widget {
         maxWidth: maxWidth,
         minHeight: minHeight,
         minWidth: minWidth,
+      ),
+      child: this,
+    );
+  }
+
+  Widget bordered({
+    bool top = true,
+    bool bottom = true,
+    bool left = true,
+    bool right = true,
+    Color color = Colors.black87,
+    double radius = 4.0,
+  }) {
+    final border = BorderSide(color: color);
+
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: top && bottom && left && right
+            ? BorderRadius.all(Radius.circular(radius))
+            : null,
+        border: Border(
+          top: top ? border : BorderSide.none,
+          bottom: bottom ? border : BorderSide.none,
+          left: left ? border : BorderSide.none,
+          right: right ? border : BorderSide.none,
+        ),
       ),
       child: this,
     );

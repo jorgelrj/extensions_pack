@@ -34,6 +34,8 @@ extension DateExtension on DateTime {
 
 extension TimeOfDayExtension on TimeOfDay {
   DateTime toDate() => DateTime(1, 1, 1, hour, minute);
+
+  int inMinutes() => (hour * 60) + minute;
 }
 
 extension DurationExtension on Duration {
