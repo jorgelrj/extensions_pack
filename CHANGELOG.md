@@ -30,3 +30,8 @@
 - TimeOfDay extension to get time in minutes
 - Widget extension to add borders
 - VoidCallback extensions
+
+## [0.0.12] - 08/08/2021
+
+- Fix scrollable widget extension
+- Fix add months extension

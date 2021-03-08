@@ -15,6 +15,8 @@ extension DateExtension on DateTime {
     return weekday == DateTime.sunday || weekday == DateTime.saturday;
   }
 
+  DateTime get beginningOfMonth => DateTime(year, month);
+
   bool isBetween(DateTime start, DateTime finish) {
     return isAfter(start) && isBefore(finish);
   }
@@ -24,10 +26,15 @@ extension DateExtension on DateTime {
 
   DateTime addDays(int days) => add(Duration(days: days));
   DateTime subtractDays(int days) => subtract(Duration(days: days));
-  DateTime addMonths(int months) => add(Duration(days: months * 30));
-  DateTime subtractMonths(int months) => subtract(Duration(days: months * 30));
-  DateTime addYears(int years) => add(Duration(days: years * 365));
-  DateTime subtractYears(int years) => subtract(Duration(days: years * 365));
+
+  DateTime addMonths(int months) {
+    final finalMonth = month + months;
+
+    return DateTime(
+      year + (finalMonth > 12 ? finalMonth ~/ 12 : 0),
+      finalMonth > 12 ? finalMonth % 12 : finalMonth,
+    );
+  }
 
   int differenceInDays(DateTime date) => difference(date).inDays;
 }

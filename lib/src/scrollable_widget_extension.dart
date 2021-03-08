@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-extension ScrollExtension on Scrollable {
+extension ScrollableExtension on Widget {
   Widget noGlowScroll() {
     return ScrollConfiguration(
       behavior: NoGlowScroll(),
