@@ -5,6 +5,7 @@ export 'src/context_extension.dart';
 export 'src/date_extension.dart';
 export 'src/function_extension.dart';
 export 'src/int_extension.dart';
+export 'src/iterable_extension.dart';
 export 'src/list_extension.dart';
 export 'src/map_extension.dart';
 export 'src/scrollable_widget_extension.dart';

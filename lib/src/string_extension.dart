@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 
 extension StringExtension on String {
@@ -24,6 +26,14 @@ extension StringExtension on String {
   }
 
   DateTime? toDateTime() => DateTime.tryParse(this);
+
+  List<String> toList() => split('');
+
+  dynamic parseJSON() => jsonDecode(this);
+
+  int? toInt() => int.tryParse(this);
+
+  double? toDouble() => double.tryParse(this);
 }
 
 extension NullStringExtension on String? {

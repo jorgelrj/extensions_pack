@@ -39,7 +39,7 @@ extension WidgetExtension on Widget {
     bool bottom = true,
     bool left = true,
     bool right = true,
-    Color color = Colors.black87,
+    Color color = Colors.black12,
     double radius = 4.0,
   }) {
     final border = BorderSide(color: color);
