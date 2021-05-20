@@ -1,6 +1,8 @@
 name: extensions_pack
 description: A new Flutter package project.
-version: 0.0.15
+
+version: 0.0.21
+
 repository: https://github.com/jorgelrj/extensions_pack
 
 environment:

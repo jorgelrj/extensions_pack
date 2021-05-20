@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 extension DateExtension on DateTime {
   DateTime get endOfDay {
     return startOfDay
@@ -10,6 +8,7 @@ extension DateExtension on DateTime {
   DateTime get startOfDay => DateTime(year, month, day);
 
   bool get isToday => startOfDay == DateTime.now().startOfDay;
+  bool get isTomorrow => startOfDay == DateTime.now().startOfDay.addDays(1);
 
   bool get isWeekend {
     return weekday == DateTime.sunday || weekday == DateTime.saturday;
@@ -82,14 +81,27 @@ extension DateExtension on DateTime {
     }
     return sunday.startOfDay;
   }
-}
 
-extension TimeOfDayExtension on TimeOfDay {
-  DateTime toDate() => DateTime(1, 1, 1, hour, minute);
+  int get weekDayBaseSunday {
+    switch (weekday) {
+      case DateTime.sunday:
+        return 0;
+      case DateTime.monday:
+        return 1;
+      case DateTime.tuesday:
+        return 2;
+      case DateTime.wednesday:
+        return 3;
+      case DateTime.thursday:
+        return 4;
+      case DateTime.friday:
+        return 5;
+      default:
+        return 6;
+    }
+  }
 
-  int inMinutes() => (hour * 60) + minute;
-}
-
-extension DurationExtension on Duration {
-  Future<void> get delay => Future.delayed(this);
+  bool isSameDayAs(DateTime date) {
+    return day == date.day && month == date.month && year == date.year;
+  }
 }

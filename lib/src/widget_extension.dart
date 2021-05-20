@@ -72,12 +72,31 @@ extension WidgetExtension on Widget {
 
 extension ListWidgetExtension on List<Widget> {
   /// Returns first widget for wide screens and last for mobile
-  Widget responsiveLayout() {
-    assert(this.length == 2);
+  Widget responsiveLayout({
+    double mobileBreakPoint = 460,
+    double tabletBreakPoint = 800,
+    double webBreakPoint = 1400,
+  }) {
+    assert(length == 3 || length == 2);
 
     return LayoutBuilder(
       builder: (context, constraints) {
-        return constraints.maxWidth > 800 ? this.first : this.last;
+        if (constraints.maxWidth <= mobileBreakPoint) {
+          return first;
+        } else if (constraints.maxWidth > mobileBreakPoint &&
+            constraints.maxWidth <= tabletBreakPoint) {
+          return this[1];
+        } else if (constraints.maxWidth > tabletBreakPoint &&
+            constraints.maxWidth <= webBreakPoint) {
+          return last;
+        } else {
+          return ConstrainedBox(
+            constraints: BoxConstraints(maxWidth: webBreakPoint),
+            child: Center(
+              child: last,
+            ),
+          );
+        }
       },
     );
   }

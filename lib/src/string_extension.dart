@@ -34,6 +34,25 @@ extension StringExtension on String {
   int? toInt() => int.tryParse(this);
 
   double? toDouble() => double.tryParse(this);
+
+  Text toText({
+    TextStyle? style,
+    double? fontSize,
+    String? fontFamily,
+    FontWeight? fontWeight,
+    Color? color,
+  }) {
+    return Text(
+      this,
+      style: style ??
+          TextStyle(
+            fontSize: fontSize,
+            fontFamily: fontFamily,
+            fontWeight: fontWeight,
+            color: color,
+          ),
+    );
+  }
 }
 
 extension NullStringExtension on String? {
