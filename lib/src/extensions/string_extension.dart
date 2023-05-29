@@ -1,16 +1,24 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:recase/recase.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 extension StringEPExtension on String {
-  String capitalize() => isBlank ? '' : '${this[0].toUpperCase()}${substring(1)}';
+  Future<void> launch() async => launchUrlString(this);
+
+  bool get isUrl => startsWith('https://') || startsWith('http://');
+
+  String capitalize() {
+    return isBlank ? '' : '${this[0].toUpperCase()}${substring(1)}';
+  }
 
   String capitalizeAllFirst() {
     return split(' ').map((e) => e.toLowerCase().capitalize()).join(' ');
   }
 
-  String toSnakeCase() => this.snakeCase;
+  String toSnakeCase() => snakeCase;
 
   bool get isEmail {
     return RegExp(
@@ -26,9 +34,19 @@ extension StringEPExtension on String {
     return dateTime == null ? null : TimeOfDay.fromDateTime(dateTime);
   }
 
-  DateTime? toDateTime() => DateTime.tryParse(this);
+  DateTime? toDateTime([String? pattern]) {
+    if (pattern == null) {
+      return DateTime.tryParse(this);
+    } else {
+      try {
+        return DateFormat(pattern).parse(this);
+      } catch (_) {
+        return null;
+      }
+    }
+  }
 
-  List<String> toList() => split('');
+  List<String> toList([Pattern pattern = '']) => split(pattern);
 
   dynamic parseJSON() => jsonDecode(this);
 
@@ -94,7 +112,7 @@ extension NullStringEPExtension on String? {
   bool get isNotBlank => !isBlank;
 
   /// Returns value between 1 and 0. The greater the value,
-  /// the greater similiarity between the strings
+  /// the greater similarity between the strings
   double similarityTo(String? compare) {
     // if both are null
     if (isBlank && compare.isBlank) {

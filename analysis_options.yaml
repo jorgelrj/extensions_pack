@@ -1,0 +1,2 @@
+include: package:my_linter/analysis_options.yaml
+

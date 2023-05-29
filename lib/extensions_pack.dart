@@ -1,21 +1,10 @@
 library extensions_pack;
 
-export 'src/bool_extension.dart';
-export 'src/context_extension.dart';
-export 'src/date_extension.dart';
-export 'src/double_extension.dart';
-export 'src/duration_extension.dart';
-export 'src/function_extension.dart';
-export 'src/int_extension.dart';
-export 'src/iterable_extension.dart';
-export 'src/list_extension.dart';
-export 'src/map_extension.dart';
-export 'src/num_extension.dart';
-export 'src/string_extension.dart';
-export 'src/time_extension.dart';
-export 'src/types/type_def.dart';
-export 'src/utils/dimension.utils.dart';
-export 'src/utils/map.utils.dart';
-export 'src/utils/string.utils.dart';
-export 'src/widget_extension.dart';
-export 'src/widgets/spacing.dart';
+export 'package:collection/collection.dart';
+
+export 'src/extensions/index.dart';
+export 'src/formatters/index.dart';
+export 'src/types/index.dart';
+export 'src/utils/index.dart';
+export 'src/validators/index.dart';
+export 'src/widgets/index.dart';

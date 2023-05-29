@@ -13,9 +13,9 @@ class MapUtils {
       if (crumbs.length > 1) {
         final dynamic nested = object[crumbs[0]];
         if (nested is List<Map>) {
-          nested.forEach(
-            (e) => omit(e, [crumbs.sublist(1, crumbs.length).join('.')]),
-          );
+          for (var e in nested) {
+            omit(e, [crumbs.sublist(1, crumbs.length).join('.')]);
+          }
         } else if (nested is Map) {
           omit(nested, [crumbs.sublist(1, crumbs.length).join('.')]);
         }

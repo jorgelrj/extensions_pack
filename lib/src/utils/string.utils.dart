@@ -1,7 +1,7 @@
 import 'package:extensions_pack/extensions_pack.dart';
 
 class StringUtils {
-  static int sortBySimiliarity({
+  static int sortBySimilarity({
     required String similarTo,
     required String string1,
     required String string2,
@@ -10,5 +10,9 @@ class StringUtils {
     final int2 = similarTo.similarityTo(string2);
 
     return int1 >= int2 ? -1 : 1;
+  }
+
+  static String cleanMask(String text) {
+    return text.replaceAll(RegExp(r'\W|_'), '');
   }
 }
