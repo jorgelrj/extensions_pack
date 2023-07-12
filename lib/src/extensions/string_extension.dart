@@ -20,6 +20,8 @@ extension StringEPExtension on String {
 
   String toSnakeCase() => snakeCase;
 
+  String toCamelCase() => camelCase;
+
   bool get isEmail {
     return RegExp(
       r"^[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$",

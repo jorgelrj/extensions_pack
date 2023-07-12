@@ -71,10 +71,10 @@ packages:
     dependency: "direct dev"
     description:
       name: my_linter
-      sha256: "46da0419ce700851a5e961777779aa1fd2757cfda8ad95ca95a966740a19735f"
+      sha256: "47618855ec19785da40eca14866f2eeff82637f815264f88a5e97323ad87907b"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.4"
+    version: "0.0.6"
   path:
     dependency: transitive
     description:
@@ -108,10 +108,10 @@ packages:
     dependency: "direct main"
     description:
       name: url_launcher
-      sha256: eb1e00ab44303d50dd487aab67ebc575456c146c6af44422f9c13889984c00f3
+      sha256: "781bd58a1eb16069412365c98597726cd8810ae27435f04b3b4d3a470bacd61e"
       url: "https://pub.dev"
     source: hosted
-    version: "6.1.11"
+    version: "6.1.12"
   url_launcher_android:
     dependency: transitive
     description:
