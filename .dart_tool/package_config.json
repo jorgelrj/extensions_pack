@@ -21,13 +21,13 @@
     },
     {
       "name": "flutter",
-      "rootUri": "file:///Users/jorge/development/flutter/packages/flutter",
+      "rootUri": "file:///Users/jorge/Development/flutter/packages/flutter",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
     {
       "name": "flutter_web_plugins",
-      "rootUri": "file:///Users/jorge/development/flutter/packages/flutter_web_plugins",
+      "rootUri": "file:///Users/jorge/Development/flutter/packages/flutter_web_plugins",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
@@ -81,7 +81,7 @@
     },
     {
       "name": "sky_engine",
-      "rootUri": "file:///Users/jorge/development/flutter/bin/cache/pkg/sky_engine",
+      "rootUri": "file:///Users/jorge/Development/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
@@ -146,7 +146,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-05-29T11:51:20.766387Z",
+  "generated": "2023-06-01T16:16:42.737564Z",
   "generator": "pub",
   "generatorVersion": "3.0.2"
 }

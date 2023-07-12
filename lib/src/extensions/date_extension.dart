@@ -104,4 +104,11 @@ extension DateEPExtension on DateTime {
   }
 
   bool get isLastDayOfMonth => day == daysInMonth;
+
+  int get weekOfYear {
+    final firstDayOfYear = DateTime(year);
+    final days = differenceInDays(firstDayOfYear);
+
+    return (days / 7).ceil();
+  }
 }
