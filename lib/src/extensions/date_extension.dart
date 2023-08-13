@@ -1,54 +1,5 @@
 extension DateEPExtension on DateTime {
-  DateTime get endOfDay {
-    return startOfDay.add(const Duration(days: 1)).subtract(const Duration(milliseconds: 1));
-  }
-
-  DateTime get startOfDay => DateTime(year, month, day);
-
-  bool get isToday => startOfDay == DateTime.now().startOfDay;
-  bool get isTomorrow => startOfDay == DateTime.now().startOfDay.addDays(1);
-
-  bool get isWeekend {
-    return weekday == DateTime.sunday || weekday == DateTime.saturday;
-  }
-
   DateTime get beginningOfMonth => DateTime(year, month);
-
-  bool isBetween(DateTime start, DateTime finish) {
-    return isAfter(start) && isBefore(finish);
-  }
-
-  bool isSameOrAfter(DateTime date) => isAtSameMomentAs(date) || isAfter(date);
-  bool isSameOrBefore(DateTime date) => isAtSameMomentAs(date) || isBefore(date);
-
-  DateTime addDays(int days) => add(Duration(days: days));
-  DateTime subtractDays(int days) => subtract(Duration(days: days));
-
-  DateTime operator +(Duration duration) => add(duration);
-  DateTime operator -(Duration duration) => subtract(duration);
-
-  /// Returns date as the first day of the next month
-  DateTime addMonths(int months) {
-    final finalMonth = month + months;
-
-    return DateTime(
-      year + (finalMonth > 12 ? finalMonth ~/ 12 : 0),
-      finalMonth > 12 ? finalMonth % 12 : finalMonth,
-    );
-  }
-
-  int differenceInDays(DateTime date) => difference(date).inDays;
-
-  bool get isLeapYear {
-    bool leapYear = false;
-
-    bool leap = ((year % 100 == 0) && (year % 400 != 0));
-    if (leap == true)
-      leapYear = false;
-    else if (year % 4 == 0) leapYear = true;
-
-    return leapYear;
-  }
 
   int get daysInMonth {
     switch (month) {
@@ -71,6 +22,37 @@ extension DateEPExtension on DateTime {
         return 0;
     }
   }
+
+  DateTime get endOfDay {
+    return startOfDay.add(const Duration(days: 1)).subtract(const Duration(milliseconds: 1));
+  }
+
+  bool get isLastDayOfMonth => day == daysInMonth;
+
+  bool get isLeapYear {
+    bool leapYear = false;
+
+    bool leap = ((year % 100 == 0) && (year % 400 != 0));
+    if (leap == true)
+      leapYear = false;
+    else if (year % 4 == 0) leapYear = true;
+
+    return leapYear;
+  }
+
+  bool get isToday => isSameDayAs(DateTime.now());
+
+  bool get isTodayOrAfter => isToday || isSameOrAfter(DateTime.now());
+
+  bool get isTodayOrBefore => isToday || isSameOrBefore(DateTime.now());
+
+  bool get isTomorrow => isSameDayAs(DateTime.now().addDays(1));
+
+  bool get isWeekend {
+    return weekday == DateTime.sunday || weekday == DateTime.saturday;
+  }
+
+  DateTime get startOfDay => DateTime(year, month, day);
 
   DateTime get sundayBefore {
     DateTime sunday = this;
@@ -99,16 +81,50 @@ extension DateEPExtension on DateTime {
     }
   }
 
-  bool isSameDayAs(DateTime date) {
-    return day == date.day && month == date.month && year == date.year;
-  }
-
-  bool get isLastDayOfMonth => day == daysInMonth;
-
   int get weekOfYear {
     final firstDayOfYear = DateTime(year);
     final days = differenceInDays(firstDayOfYear);
 
     return (days / 7).ceil();
   }
+
+  DateTime addDays(int days) => add(Duration(days: days));
+
+  /// Returns date as the first day of the next month
+  DateTime addMonths(int months) {
+    final finalMonth = month + months;
+
+    return DateTime(
+      year + (finalMonth > 12 ? finalMonth ~/ 12 : 0),
+      finalMonth > 12 ? finalMonth % 12 : finalMonth,
+    );
+  }
+
+  int differenceInDays(DateTime date) => difference(date).inDays;
+
+  bool isBetween(DateTime start, DateTime finish) {
+    return isAfter(start) && isBefore(finish);
+  }
+
+  bool isSameDayAs(DateTime date) {
+    return day == date.day && month == date.month && year == date.year;
+  }
+
+  bool isSameOrAfter(DateTime date) => isAtSameMomentAs(date) || isAfter(date);
+
+  bool isSameOrBefore(DateTime date) => isAtSameMomentAs(date) || isBefore(date);
+
+  DateTime subtractDays(int days) => subtract(Duration(days: days));
+
+  DateTime operator +(Duration duration) => add(duration);
+
+  DateTime operator -(Duration duration) => subtract(duration);
+
+  bool operator >(DateTime date) => isAfter(date);
+
+  bool operator >=(DateTime date) => isSameOrAfter(date);
+
+  bool operator <(DateTime date) => isBefore(date);
+
+  bool operator <=(DateTime date) => isSameOrBefore(date);
 }
